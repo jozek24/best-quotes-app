@@ -122,6 +122,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "best-quotes-app"
+    }
+  },
+  "defaultProject": "best-quotes-app",
+  "cli": {
+    "analytics": false
+  }
 }
