@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
 import { Quotation } from '../models/quotation';
 
 @Component({
@@ -7,7 +7,8 @@ import { Quotation } from '../models/quotation';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent{
-  showForm = true;
+  @Output() newQuotation = new EventEmitter<Quotation>();
+  showForm = false;
   quotation: Quotation = { author: '', sentence: '', votes: 0 };
 
   onSwitchForm(): void{
@@ -15,6 +16,7 @@ export class FormComponent{
   }
 
   addQuotation(){
+    this.newQuotation.emit(this.quotation);
     this.quotation={author:'', sentence:'', votes:0 };
   }
 }
